@@ -4,14 +4,16 @@ import './App.css';
 import {useState, useEffect} from 'react'
 
 function App() {
+
 const [save,setSave] = useState([])
 const [start,setStart] = useState(false)
 const [time,setTime] = useState(0)
 
-const clockTime = (boole) => {
-  if(boole){
+
+const clockTime = (bool) => {
+  if(bool && start){
   setSave([...save,{time: time}])
-  }else{
+  }else if(!bool){
     setSave([])
   }
 }
@@ -21,9 +23,14 @@ const clockTime = (boole) => {
 
 //updates time every 10 miliseconds
 useEffect(() => {
+  
   if(start){
+ 
+
   const timer=setTimeout(() => {
+
     setTime(time => time+1);
+
  }, 10);
   return () => clearTimeout(timer);
 }

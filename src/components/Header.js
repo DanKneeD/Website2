@@ -2,9 +2,10 @@
 const Header = ({start, timer, setStart,restart,clockTime}) => {
     return (
         <div>
+        
             <header>Stop Watch!</header>
             
-            <button  onClick={setStart}> {start ? "Stop":"Start"} </button>
+            <button onClick={setStart}> {start ? "Stop":"Start"} </button>
             <button onClick={restart}> Restart</button>
             <button onClick={() => clockTime(true)}>Lap</button>
             <button onClick={() => clockTime(false)}>Clear Laps</button>
